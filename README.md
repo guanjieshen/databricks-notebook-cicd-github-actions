@@ -1,4 +1,4 @@
-# databricks-notebook-cicd-ado
+# databricks-notebook-cicd-github-actions
 
 This is a sample project for Databricks showcasing how to leverage DBX with Github Actions.
 
