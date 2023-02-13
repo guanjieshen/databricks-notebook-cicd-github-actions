@@ -5,7 +5,7 @@ on: push
   #   types: [opened, synchronize]
 
 jobs:
-  test-pipeline:
+  dev-pipeline:
     runs-on: ${{ matrix.os }}
     strategy:
       max-parallel: 4
@@ -42,6 +42,6 @@ jobs:
       - name: Install dependencies
         run: pip install -U -r requirements.txt
       
-      - name: Deploy the code and launch integration tests
+      - name: Deploy the job.
         run: |
           dbx deploy --deployment-file=conf/dev-deployment.yml --no-rebuild

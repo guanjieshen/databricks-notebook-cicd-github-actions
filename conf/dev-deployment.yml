@@ -17,11 +17,11 @@ environments:
   default:
     jobs:
         #TODO: Change the name of this job
-      - name: "databricks-notebook-cicd-ado-dev"
+      - name: "databricks-notebook-cicd-github-actions-dev"
 
         #TODO: Change this to the relevant repository
         git_source:
-          git_url: https://github.com/guanjieshen/databricks-notebook-cicd-ado.git
+          git_url: https://github.com/guanjieshen/databricks-notebook-cicd-github-actions.git
           git_provider: "GitHub"
           git_branch: "dev"
 
