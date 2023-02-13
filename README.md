@@ -5,8 +5,7 @@ This is a sample project for Databricks showcasing how to leverage DBX with Gith
 
 ## CICD pipeline settings
 
-The pipeline in this repo is set to use `dev-databricks-workspace-environment` and `prod-databricks-workspace-environment` as the variable group names for the Dev and Prod deployments. This can be changed in the `azure-pipelines.yml` file.
-
+Configure `DATABRICKS_HOST` and `DATABRICKS_TOKEN` secrets for your project in [GitHub UI](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
 
 ## Deploying from IDE (Local Machine)
 The workflow can also be deployed and restarted locally using the following commands in the terminal:
