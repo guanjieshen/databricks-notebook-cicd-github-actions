@@ -1,8 +1,8 @@
 name: PR pipeline
 
-on:
-  pull_request:
-    types: [opened, synchronize]
+on: push
+  # pull_request:
+  #   types: [opened, synchronize]
 
 jobs:
   test-pipeline:
