@@ -4,7 +4,6 @@ from base import SparkTest
 from pyspark.sql.types import *
 from datetime import datetime
 from chispa.dataframe_comparer import *
-from freezegun import freeze_time
 
 
 class TransformersTests(SparkTest):
