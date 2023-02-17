@@ -1,6 +1,10 @@
 name: PR pipeline
 
-on: push
+on: 
+  push:
+    branches:
+    #TODO: Update branch names
+      - dev
   # pull_request:
   #   types: [opened, synchronize]
 
