@@ -18,17 +18,17 @@ class SparkTest(unittest.TestCase):
     def setUpClass(cls) -> None:
         # create and configure PySpark Session
         cls.spark = (
-            SparkSession.builder.appName("unit-tests").master("local").getOrCreate()
+          SparkSession.builder.appName("unit-tests").master("local").getOrCreate()
         )
         cls.spark.conf.set("spark.sql.shuffle.partitions", "1")
         cls.spark.sparkContext.setLogLevel("ERROR")
         # filter out ResourceWarning messages
         warnings.filterwarnings("ignore", category=ResourceWarning)
 
-    @classmethod
-    def tearDownClass(cls) -> None:
-        # shut down Spark
-        cls.spark.stop()
+    # @classmethod
+    # def tearDownClass(cls) -> None:
+    #     # shut down Spark
+    #     cls.spark.stop()
 
     def setUp(self) -> None:
         schema, data = get_test_data()
