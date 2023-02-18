@@ -19,10 +19,9 @@ display(df)
 from utils.transformers import convertTimestampToDate, addETLMetadata
 
 
-transformed_df = (df
-                  .transform(lambda df: convertTimestampToDate(df, "birthDate"))
-                  .transform(lambda df: addETLMetadata(df, source))
-                 )
+transformed_df = df.transform(
+    lambda df: convertTimestampToDate(df, "birthDate")
+).transform(lambda df: addETLMetadata(df, source))
 
 # COMMAND ----------
 

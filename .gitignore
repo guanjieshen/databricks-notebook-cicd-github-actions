@@ -35,3 +35,4 @@ mlruns/
 
 # Virutal Environments
 venv
+.databricks
