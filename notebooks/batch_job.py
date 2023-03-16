@@ -28,5 +28,4 @@ transformed_df = df.transform(
 display(transformed_df)
 
 # COMMAND ----------
-
 # MAGIC %md ##### 3. Write to Data Lake

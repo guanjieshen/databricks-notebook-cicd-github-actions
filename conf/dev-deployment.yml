@@ -54,7 +54,7 @@ environments:
               notebook_path: "notebooks/batch_job"
               base_parameters: {"env" : "dev"}
             min_retry_interval_millis: 900000
-
+  
           - task_key: "task-02"
             job_cluster_key: "basic-static-cluster"
             max_retries: 1
