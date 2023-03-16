@@ -1,4 +1,8 @@
 # Databricks notebook source
+pip install -r ../requirements.txt
+
+# COMMAND ----------
+
 from unittest import TestLoader, TestResult
 
 test_loader = TestLoader()
