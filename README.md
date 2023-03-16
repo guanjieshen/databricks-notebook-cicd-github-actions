@@ -1,6 +1,10 @@
 # databricks-notebook-cicd-github-actions
 
-This is a sample project for Databricks showcasing how to leverage DBX with Github Actions.
+This is a template repository for Databricks leveraging [DBX](https://docs.databricks.com/dev-tools/dbx.html with Github Actions to for CI/CD.
+
+This template supports both a __notebook only__ and __hybrid__ development pattern (importing [file](https://docs.databricks.com/files/workspace-modules.html) based Python modules into notebooks).
+
+# How to use the repo
 
 
 ## CICD pipeline settings
