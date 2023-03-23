@@ -12,10 +12,6 @@ display(df)
 
 # COMMAND ----------
 
-print(df.count())
-
-# COMMAND ----------
-
 # MAGIC %md ##### 2. Apply Transformations
 
 # COMMAND ----------
