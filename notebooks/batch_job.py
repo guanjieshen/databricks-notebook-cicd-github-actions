@@ -38,7 +38,7 @@ transformed_df = df.transform(
 
 # COMMAND ----------
 
-display(transformed_df)
+# display(transformed_df)
 
 # COMMAND ----------
 
