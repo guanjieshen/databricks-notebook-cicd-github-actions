@@ -19,7 +19,7 @@ build:
 environments:
   default:
     jobs:
-      - name: "databricks-notebook-cicd-github-actions-stg-integration-test"
+      - name: "databricks-notebook-cicd-github-actions-pr-integration-test"
         git_source:
           git_url: https://github.com/guanjieshen/databricks-notebook-cicd-github-actions.git
           git_provider: "GitHub"
@@ -30,4 +30,17 @@ environments:
         notebook_task:
           notebook_path: "tests/integration/batch_job_integration_test"
           base_parameters: {"database_name" : "guanjie_db_stg", "table_name" : "people10m"}
+
+      - name: "databricks-notebook-cicd-github-actions-stg-integration-test"
+        git_source:
+          git_url: https://github.com/guanjieshen/databricks-notebook-cicd-github-actions.git
+          git_provider: "GitHub"
+          git_branch: "main"
+
+        <<: *basic-static-cluster
+
+        notebook_task:
+          notebook_path: "tests/integration/batch_job_integration_test"
+          base_parameters: {"database_name" : "guanjie_db_stg", "table_name" : "people10m"}
+
 
