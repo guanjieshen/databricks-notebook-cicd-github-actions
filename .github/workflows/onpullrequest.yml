@@ -53,16 +53,8 @@ jobs:
 
       - name: Deploy integration test
         run: |
-          dbx deploy --deployment-file=conf/stg-deployment.yml  --workflows=databricks-notebook-cicd-github-actions-stg-integration-test
+          dbx deploy --deployment-file=conf/integration-test-deployment.yml  --workflows=databricks-notebook-cicd-github-actions-stg-integration-test --assets-only
   
       - name: Run integration test
         run: |
-          dbx launch databricks-notebook-cicd-github-actions-stg-integration-test --include-output stdout
-
-      - name: Deploy the job.
-        run: |
-          dbx deploy --deployment-file=conf/stg-deployment.yml --workflows=databricks-notebook-cicd-github-actions-stg --no-rebuild
-
-      - name: Restart the job.
-        run: |
-          dbx launch databricks-notebook-cicd-github-actions-stg --existing-runs=cancel
+          dbx launch databricks-notebook-cicd-github-actions-stg-integration-test --from-assets --trace

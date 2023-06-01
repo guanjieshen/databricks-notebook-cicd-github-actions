@@ -51,3 +51,6 @@ result = BatchJobTestFixture().execute_tests()
 print(result.to_string())
 # Comment out the next line (result.exit(dbutils)) to see the test result report from within the notebook
 # result.exit(dbutils)
+# COMMAND ----------
+if result.test_results.num_failures > 0:
+    raise Exception("Integration tests did not pass.")

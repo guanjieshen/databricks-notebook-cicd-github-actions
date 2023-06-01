@@ -11,40 +11,14 @@ custom:
       <<: *basic-cluster-props
       num_workers: 1
       node_type_id: "Standard_E8_v3"
+      
+build:
+   no_build: true
 
 # please note that we're using FUSE reference for config file, hence we're going to load this file using its local FS path
 environments:
   default:
     jobs:
-      - name: "databricks-notebook-cicd-github-actions-stg-integration-test"
-        git_source:
-          git_url: https://github.com/guanjieshen/databricks-notebook-cicd-github-actions.git
-          git_provider: "GitHub"
-          git_branch: "main"
-
-        #TODO: Set  tagging
-        tags:
-          owner: "guanjie.shen@databricks.com"
-          pipeline_type: "Integration Test"
-          environment: "Staging"
-          domain: "Human Resources"
-
-        #TODO: Change the following to the set the appropriate owners
-        access_control_list:
-          - user_name: "guanjie.shen@databricks.com"
-            permission_level: "IS_OWNER"
-
-        job_clusters:
-          - job_cluster_key: "basic-static-cluster"
-            <<: *basic-static-cluster
-
-        tasks:
-          - task_key: "batch_job_integration_test"
-            job_cluster_key: "basic-static-cluster"
-            notebook_task:
-              notebook_path: "tests/integration/batch_job_integration_test"
-              base_parameters: {"database_name" : "guanjie_db_stg", "table_name" : "people10m"}
-
         #TODO: Change the name of this job
       - name: "databricks-notebook-cicd-github-actions-stg"
         #TODO: Change this to the relevant repository
