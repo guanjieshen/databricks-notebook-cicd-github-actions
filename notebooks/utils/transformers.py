@@ -10,7 +10,7 @@ def convertTimestampToDate(df, timestamp_col_name):
 
 # Add ETL related metadata
 def addETLMetadata(df, source):
-    out_df = df.withColumn("__source", lit(source)).withColumn(
+    out_df = df.withColumn("__data_source", lit(source)).withColumn(
         "__processedTime", current_timestamp()
     )
     return out_df

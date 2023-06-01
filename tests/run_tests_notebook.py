@@ -3,6 +3,11 @@ pip install -r ../requirements.txt
 
 # COMMAND ----------
 
+# MAGIC %load_ext autoreload
+# MAGIC %autoreload 2
+
+# COMMAND ----------
+
 from unittest import TestLoader, TestResult
 
 test_loader = TestLoader()
