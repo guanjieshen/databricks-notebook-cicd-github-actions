@@ -11,6 +11,13 @@
 
 # COMMAND ----------
 
+dbutils.widgets.text("database_name", "guanjie_db")
+dbutils.widgets.text("table_name", "people10m")
+database_name = dbutils.widgets.get("database_name")
+table_name = dbutils.widgets.get("table_name")
+
+# COMMAND ----------
+
 from runtime.nutterfixture import NutterFixture, tag
 
 
@@ -18,24 +25,27 @@ class BatchJobTestFixture(NutterFixture):
     def before_all(self):
         sqlContext.sql("CREATE DATABASE IF NOT EXISTS guanjie_db_tmp")
         sqlContext.sql(
-            "CREATE OR REPLACE TABLE guanjie_db_tmp.people10m SHALLOW CLONE guanjie_db.people10m"
+            f"CREATE OR REPLACE TABLE {database_name}_tmp.{table_name} SHALLOW CLONE {database_name}.{table_name}"
         )
 
     def run_batch_job_test(self):
         dbutils.notebook.run(
             "../../notebooks/batch_job",
             600,
-            {"sink": "guanjie_db_tmp.people10m"},
+            {"sink": f"{database_name}_tmp.{table_name}"},
         )
 
     def assertion_batch_job_test(self):
-        some_tbl = sqlContext.sql("SELECT COUNT(*) AS total FROM guanjie_db_tmp.people10m")
+        some_tbl = sqlContext.sql(
+            f"SELECT COUNT(*) AS total FROM {database_name}_tmp.{table_name}"
+        )
         first_row = some_tbl.first()
         print(first_row)
         assert first_row[0] > 0
 
     def after_all(self):
-       sqlContext.sql("DROP DATABASE guanjie_db_tmp CASCADE")
+        sqlContext.sql(f"DROP DATABASE {database_name}_tmp CASCADE")
+
 
 result = BatchJobTestFixture().execute_tests()
 print(result.to_string())
