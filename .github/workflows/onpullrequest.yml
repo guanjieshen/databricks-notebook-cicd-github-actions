@@ -17,7 +17,7 @@ jobs:
         os: [ubuntu-latest]
 
     env:
-      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_HOST: ${{ env.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
 
     steps:
