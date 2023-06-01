@@ -23,7 +23,7 @@ from runtime.nutterfixture import NutterFixture, tag
 
 class BatchJobTestFixture(NutterFixture):
     def before_all(self):
-        sqlContext.sql("CREATE DATABASE IF NOT EXISTS guanjie_db_tmp")
+        sqlContext.sql("CREATE DATABASE IF NOT EXISTS {database_name}_tmp")
         sqlContext.sql(
             f"CREATE OR REPLACE TABLE {database_name}_tmp.{table_name} SHALLOW CLONE {database_name}.{table_name}"
         )
