@@ -37,7 +37,7 @@ class TransformersTests(SparkTest):
             [
                 StructField("event_ts", TimestampType()),
                 StructField("value_a", FloatType()),
-                StructField("__source", StringType()),
+                StructField("__data_source", StringType()),
                 StructField("__processedTime", TimestampType()),
             ]
         )
