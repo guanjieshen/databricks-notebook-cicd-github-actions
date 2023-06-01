@@ -5,8 +5,6 @@ on:
     branches:
     #TODO: Update branch names
       - dev
-  # pull_request:
-  #   types: [opened, synchronize]
 
 jobs:
   dev-pipeline:
@@ -18,7 +16,7 @@ jobs:
         os: [ubuntu-latest]
 
     env:
-      DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
+      DATABRICKS_HOST: ${{ vars.DATABRICKS_HOST }}
       DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
 
     steps:
