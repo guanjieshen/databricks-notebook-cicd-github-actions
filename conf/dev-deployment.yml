@@ -2,7 +2,7 @@ custom:
   #TODO: Adjust the cluster
   basic-cluster-props: &basic-cluster-props
     spark_version: "11.3.x-scala2.12"
-    runtime_engine: STANDARD
+    runtime_engine: PHOTON
     spark_conf:
       spark.databricks.delta.preview.enabled: 'true'
 
