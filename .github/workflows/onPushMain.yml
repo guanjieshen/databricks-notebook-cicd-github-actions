@@ -1,4 +1,4 @@
-name: STG pipeline
+name: PROD pipeline
 
 on: 
   push:
