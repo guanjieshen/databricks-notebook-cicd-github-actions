@@ -50,4 +50,4 @@ print(transformed_df.count())
 
 # COMMAND ----------
 
-transformed_df.write.mode("overwrite").saveAsTable(sink)
+transformed_df.write.mode("overwrite").option("overwriteSchema", "true").saveAsTable(sink)
