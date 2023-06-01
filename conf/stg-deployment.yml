@@ -17,24 +17,20 @@ environments:
   default:
     jobs:
         #TODO: Change the name of this job
-      - name: "databricks-notebook-cicd-ado-prod"
-        #TODO: Change the following to the relevant email
-        email_notifications:
-          on_start: [ "guanjie.shen@databricks.com" ]
-          on_success: [ "guanjie.shen@databricks.com" ]
-          on_failure: [ "guanjie.shen@databricks.com" ]
+      - name: "databricks-notebook-cicd-github-actions-stg"
 
         #TODO: Change this to the relevant repository
         git_source:
-          git_url: https://github.com/guanjieshen/databricks-notebook-cicd-ado.git
+          git_url: https://github.com/guanjieshen/databricks-notebook-cicd-github-actions.git
           git_provider: "GitHub"
           git_branch: "main"
 
         #TODO: Set  tagging
         tags:
-          owner: "Guanjie Shen"
+          owner: "guanjie.shen@databricks.com"
           pipeline_type: "Streaming"
-          environment: "Production"
+          environment: "Development"
+          domain: "Human Resources"
 
         #OPTIONAL: Alters for skipped runs
         no_alert_for_skipped_runs: false
@@ -53,25 +49,16 @@ environments:
         tasks:
           - task_key: "task-01"
             job_cluster_key: "basic-static-cluster"
-            max_retries: 3
+            # Add dependent libraries
+            max_retries: 1
             notebook_task:
               notebook_path: "notebooks/create_schema_job"
             min_retry_interval_millis: 900000
-            #TODO: Change the following to your email
-            email_notifications:
-              on_start: [ "guanjie.shen@databricks.com" ]
-              on_success: [ "guanjie.shen@databricks.com" ]
-              on_failure: [ "guanjie.shen@databricks.com" ]
 
           - task_key: "task-02"
             job_cluster_key: "basic-static-cluster"
-            max_retries: 3
+            max_retries: 1
             notebook_task:
               notebook_path: "notebooks/batch_job"
               base_parameters: {"source" : "dbfs:/databricks-datasets/learning-spark-v2/people/people-10m.delta", "sink": "guanjie_db.people10m" }
             min_retry_interval_millis: 900000
-            #TODO: Change the following to your email
-            email_notifications:
-              on_start: [ "guanjie.shen@databricks.com" ]
-              on_success: [ "guanjie.shen@databricks.com" ]
-              on_failure: [ "guanjie.shen@databricks.com" ]
