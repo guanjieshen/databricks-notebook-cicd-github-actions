@@ -53,6 +53,7 @@ environments:
             max_retries: 1
             notebook_task:
               notebook_path: "notebooks/create_schema_job"
+              base_parameters: {"database_name" : "guanjie_db_stg"}
             min_retry_interval_millis: 900000
 
           - task_key: "task-02"
@@ -60,5 +61,5 @@ environments:
             max_retries: 1
             notebook_task:
               notebook_path: "notebooks/batch_job"
-              base_parameters: {"source" : "dbfs:/databricks-datasets/learning-spark-v2/people/people-10m.delta", "sink": "guanjie_db.people10m" }
+              base_parameters: {"source" : "dbfs:/databricks-datasets/learning-spark-v2/people/people-10m.delta", "sink": "guanjie_db_stg.people10m" }
             min_retry_interval_millis: 900000
