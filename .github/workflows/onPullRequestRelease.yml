@@ -1,13 +1,12 @@
-name: STG pipeline
+name: Release Branch PR pipeline
 
-on: 
-  push:
+on:
+  pull_request:
     branches:
-    #TODO: Update branch names
-      - main
+      - release
 
 jobs:
-  dev-pipeline:
+  stg-pipeline:
     runs-on: ${{ matrix.os }}
     strategy:
       max-parallel: 4
@@ -52,12 +51,8 @@ jobs:
 
       - name: Deploy integration test
         run: |
-          dbx deploy --deployment-file=conf/integration-test-deployment.yml  --workflows=databricks-notebook-cicd-github-actions-stg-integration-test --assets-only
+          dbx deploy --deployment-file=conf/integration-test-deployment.yml  --workflows=databricks-notebook-cicd-github-actions-pr-integration-test --assets-only
   
       - name: Run integration test
         run: |
-          dbx launch databricks-notebook-cicd-github-actions-stg-integration-test --from-assets --trace
-
-      - name: Deploy the job.
-        run: |
-          dbx deploy --deployment-file=conf/stg-deployment.yml --no-rebuilds
+          dbx launch databricks-notebook-cicd-github-actions-pr-integration-test --from-assets --trace
