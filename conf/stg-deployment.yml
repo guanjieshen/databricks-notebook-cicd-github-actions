@@ -16,6 +16,13 @@ custom:
 environments:
   default:
     jobs:
+      - name: "databricks-notebook-cicd-github-actions-stg-integration-test"
+        <<: *basic-static-cluster
+        spark_python_task:
+          python_file: 'file://tests/integration/batch_job_integration_test.py'
+          parameters: ['--database_name', 'guanjie_db_stg',
+                       '--table_name', 'people10m']
+                       
         #TODO: Change the name of this job
       - name: "databricks-notebook-cicd-github-actions-stg"
 
