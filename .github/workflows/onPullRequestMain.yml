@@ -1,11 +1,9 @@
-name: PR pipeline
+name: Main Branch PR pipeline
 
 on:
   pull_request:
     branches:
       - main
-    tags-ignore:
-      - 'v*' # this tag type is used for release pipelines
 
 jobs:
   stg-pipeline:
@@ -53,8 +51,8 @@ jobs:
 
       - name: Deploy integration test
         run: |
-          dbx deploy --deployment-file=conf/integration-test-deployment.yml  --workflows=databricks-notebook-cicd-github-actions-pr-integration-test --assets-only
+          dbx deploy --deployment-file=conf/integration-test-deployment.yml  --workflows=databricks-notebook-cicd-github-actions-stg-integration-test --assets-only
   
       - name: Run integration test
         run: |
-          dbx launch databricks-notebook-cicd-github-actions-pr-integration-test --from-assets --trace
+          dbx launch databricks-notebook-cicd-github-actions-stg-integration-test --from-assets --trace

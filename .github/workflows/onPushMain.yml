@@ -44,20 +44,6 @@ jobs:
       - name: Install dependencies
         run: pip install -U -r requirements.txt
 
-      - name: Run Unit Tests & Coverage
-        run: |
-          pip install coverage
-          coverage run -m unittest discover tests/unit "*_test.py"
-          coverage report
-
-      - name: Deploy integration test
-        run: |
-          dbx deploy --deployment-file=conf/integration-test-deployment.yml  --workflows=databricks-notebook-cicd-github-actions-stg-integration-test --assets-only
-  
-      - name: Run integration test
-        run: |
-          dbx launch databricks-notebook-cicd-github-actions-stg-integration-test --from-assets --trace
-
       - name: Deploy the job.
         run: |
-          dbx deploy --deployment-file=conf/stg-deployment.yml --no-rebuilds
+          dbx deploy --deployment-file=conf/prod-deployment.yml --no-rebuild
