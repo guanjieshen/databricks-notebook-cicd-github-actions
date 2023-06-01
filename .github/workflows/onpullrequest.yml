@@ -53,7 +53,7 @@ jobs:
 
       - name: Deploy integration test [staging environment]
         run: |
-          dbx deploy  --deployment-file=conf/stg-deployment.yml --jobs=databricks-notebook-cicd-github-actions-stg-integration-test --assets-only
+          dbx deploy --deployment-file=conf/stg-deployment.yml --job=databricks-notebook-cicd-github-actions-stg-integration-test --assets-only
   
       - name: Run integration test [staging environment]
         run: |
@@ -61,7 +61,7 @@ jobs:
 
       - name: Deploy the job.
         run: |
-          dbx deploy --deployment-file=conf/stg-deployment.yml --jobs=databricks-notebook-cicd-github-actions-stg --no-rebuild
+          dbx deploy --deployment-file=conf/stg-deployment.yml --job=databricks-notebook-cicd-github-actions-stg --no-rebuild
 
       - name: Restart the job.
         run: |
