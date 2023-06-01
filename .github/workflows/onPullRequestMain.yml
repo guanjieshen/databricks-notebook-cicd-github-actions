@@ -1,12 +1,10 @@
-name: PR pipeline
+name: Main Branch PR pipeline
 
 on:
   pull_request:
     branches:
       - main
-    tags-ignore:
-      - 'v*' # this tag type is used for release pipelines
-
+      
 jobs:
   stg-pipeline:
     runs-on: ${{ matrix.os }}
