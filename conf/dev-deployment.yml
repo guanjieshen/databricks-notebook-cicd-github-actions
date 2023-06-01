@@ -28,7 +28,7 @@ environments:
         #TODO: Set  tagging
         tags:
           owner: "guanjie.shen@databricks.com"
-          pipeline_type: "Streaming"
+          pipeline_type: "Batch"
           environment: "Development"
           domain: "Human Resources"
 

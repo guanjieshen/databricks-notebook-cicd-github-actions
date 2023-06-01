@@ -53,11 +53,11 @@ jobs:
 
       - name: Deploy integration test [staging environment]
         run: |
-          dbx deploy  --deployment-file=conf/stg-deployment.yml --jobs=databricks-notebook-cicd-github-actions-stg-integration-test --files-only
+          dbx deploy  --deployment-file=conf/stg-deployment.yml --jobs=databricks-notebook-cicd-github-actions-stg-integration-test --assets-only
   
       - name: Run integration test [staging environment]
         run: |
-          dbx launch  --deployment-file=conf/stg-deployment.yml --job=databricks-notebook-cicd-github-actions-stg-integration-test --as-run-submit --trace
+          dbx launch  --deployment-file=conf/stg-deployment.yml --job=databricks-notebook-cicd-github-actions-stg-integration-test --from-assets --trace
 
       - name: Deploy the job.
         run: |
