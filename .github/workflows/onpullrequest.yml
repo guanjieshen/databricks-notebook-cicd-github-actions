@@ -61,7 +61,7 @@ jobs:
 
       - name: Deploy the job.
         run: |
-          dbx deploy --deployment-file=conf/stg-deployment.yml --no-rebuild
+          dbx deploy --deployment-file=conf/stg-deployment.yml --jobs=databricks-notebook-cicd-github-actions-stg --no-rebuild
 
       - name: Restart the job.
         run: |
