@@ -42,7 +42,7 @@ transformed_df = df.transform(
 
 # COMMAND ----------
 
-print(transformed_df)
+print(transformed_df.schema)
 
 # COMMAND ----------
 
