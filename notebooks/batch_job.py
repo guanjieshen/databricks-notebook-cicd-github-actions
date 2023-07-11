@@ -42,7 +42,7 @@ transformed_df = df.transform(
 
 # COMMAND ----------
 
-print(transformed_df.count())
+print(transformed_df)
 
 # COMMAND ----------
 
@@ -50,4 +50,6 @@ print(transformed_df.count())
 
 # COMMAND ----------
 
-transformed_df.write.mode("overwrite").option("overwriteSchema", "true").saveAsTable(sink)
+transformed_df.write.mode("overwrite").option("overwriteSchema", "true").saveAsTable(
+    sink
+)
