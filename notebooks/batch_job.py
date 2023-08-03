@@ -1,5 +1,5 @@
 # Databricks notebook source
-# MAGIC %md ##### 0. Get Job Parameters
+# MAGIC %md ##### 0. Get Notebook Job Parameters
 
 # COMMAND ----------
 
